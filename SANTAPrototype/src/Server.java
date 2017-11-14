@@ -25,22 +25,7 @@ public class Server extends Thread{
     Server(){
         
     }
-    public void addQuestions(){
-        questions.add("Question0:");
-        questions.add("Question1");
-        questions.add("Question2");
-        questions.add("Question3");
-        questions.add("Question4");
-        questions.add("Question5");
-        questions.add("Question6");
-        questions.add("Question7");
-        questions.add("Question8");
-        questions.add("Question9");
-        questions.add("Question10");
-        questions.add("Question11");
-        questions.add("Question12");
-        
-    }
+ 
     
     public void addToSEI(int i){
         SEIqs.add(questions.get(i));
