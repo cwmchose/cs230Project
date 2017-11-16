@@ -26,9 +26,13 @@ public class Server extends Thread{
     Server(){
         
     }
+<<<<<<< HEAD
     public void addQuestions(){
    
     }
+=======
+ 
+>>>>>>> 6acc01622d5764828d4bf7caf2779aef271b37bc
     
     public void addToSEI(int i){
         SEIqs.add(questions.get(i));

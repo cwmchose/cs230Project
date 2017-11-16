@@ -41,6 +41,11 @@ public class Course extends javax.swing.JFrame {
         jLabel1.setText("CS 111");
 
         resultsButton.setText("Get Results");
+        resultsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultsButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Status:");
 
@@ -151,9 +156,15 @@ public class Course extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
+<<<<<<< HEAD
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         new editSEI().setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed
+=======
+    private void resultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultsButtonActionPerformed
+        new Results().setVisible(true);
+    }//GEN-LAST:event_resultsButtonActionPerformed
+>>>>>>> 6acc01622d5764828d4bf7caf2779aef271b37bc
 
     /**
      * @param args the command line arguments
