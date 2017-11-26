@@ -19,25 +19,45 @@ public class Server extends Thread{
     
     Boolean running = true;
     ArrayList<ClientHandler> clientList = new ArrayList();
-    public static ArrayList<String> questions = new ArrayList<String>();
-    public ArrayList<String> SEIqs = new ArrayList<String>();
-    public ListModel questionPool = new DefaultListModel();
+    public ListModel questionPoolD = new DefaultListModel();
+    public ListModel questionPoolC = new DefaultListModel();
+    public ListModel pSelects = new DefaultListModel();  
+    public ListModel dSelects = new DefaultListModel();
+    public ListModel iSelects = new DefaultListModel();
    
     Server(){
         
     }
-<<<<<<< HEAD
-    public void addQuestions(){
-   
+
+    public ListModel getList(String s){
+        if(s.equals("dean"))
+            return dSelects;
+        else if(s.equals("provost"))
+            return pSelects;
+        else if  (s.equals("instructor"))
+            return iSelects;
+        else if(s.equals("cpool"))
+            return questionPoolC;
+        else if(s.equals("pool"))
+            return questionPoolD;
+        else 
+            return null;
     }
-=======
- 
->>>>>>> 6acc01622d5764828d4bf7caf2779aef271b37bc
-    
-    public void addToSEI(int i){
-        SEIqs.add(questions.get(i));
+      
+    public void setList(ListModel m, String s){
+        if(s.equals("dean"))
+            dSelects = m;
+        else if(s.equals("provost"))
+            pSelects = m;
+        else if  (s.equals("instructor"))
+            iSelects = m;
+        else if(s.equals("cpool"))
+            questionPoolC = m;
+        else if(s.equals("pool"))
+            questionPoolD = m;
+        else 
+            return;
     }
-    
     
     @Override
     public void run(){

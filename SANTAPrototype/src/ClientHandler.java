@@ -49,10 +49,10 @@ public class ClientHandler extends Thread{
     private void processInput(String inputstring){
         System.out.println("Processing Command");
         if(inputstring.startsWith("/add ")){
-            server.addQuestionChoices(inputstring.substring(5));
+            server.setList(inputstring.substring(5));
         }else{
             if(inputstring.startsWith("/get")){
-              outWriter.println("/dis" + server.getQuestions());
+              outWriter.println("/dis" + server.getList());
               outWriter.flush();
             }
         

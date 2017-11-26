@@ -33,9 +33,13 @@ public class Provost extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        departmentBox = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
+        courseBox = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        instructorBox = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,16 +57,14 @@ public class Provost extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Welcome");
+        jLabel1.setText("Welcome Provost");
 
-        jLabel2.setText("Select a department to view:");
+        jLabel2.setText("Select a department:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Engineering", "Computer Science & Electrical Engineering", "Humanities", "Art", " " }));
-
-        jButton1.setText("Go");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        departmentBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------------------", "Engineering", "Computer Science & Electrical Engineering", "Humanities", "Art", "" }));
+        departmentBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                departmentBoxActionPerformed(evt);
             }
         });
 
@@ -73,21 +75,35 @@ public class Provost extends javax.swing.JFrame {
             }
         });
 
+        courseBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        jLabel3.setText("Choose course to view results from:");
+
+        jButton4.setText("View Results");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        instructorBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----------------" }));
+        instructorBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instructorBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Select an instructor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton5))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,13 +112,25 @@ public class Provost extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3))
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(departmentBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 104, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1))
-                                .addGap(0, 106, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton5)))
+                                    .addComponent(jButton4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(courseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(instructorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -112,11 +140,19 @@ public class Provost extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(departmentBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(instructorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(courseBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -137,13 +173,66 @@ public class Provost extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Dean().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         new addQuestions().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new  Results().setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void instructorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instructorBoxActionPerformed
+      if(instructorBox.getItemAt(0) == null)
+          return;
+      else{
+        if(instructorBox.getSelectedItem().equals("Christopher Valley")){
+            courseBox.removeAllItems();
+            courseBox.addItem("CS 111");
+            courseBox.addItem("CS 312");
+            courseBox.addItem("CS 485");
+        }
+        else if(instructorBox.getSelectedItem().equals("-----------------")){
+            courseBox.removeAllItems();
+            courseBox.addItem("-----");
+        }
+         else if(instructorBox.getSelectedItem().equals("Kyle Draper")){
+            courseBox.removeAllItems();
+            courseBox.addItem("ART 101");
+        }
+        else{
+            courseBox.removeAllItems();
+            courseBox.addItem("CS 230");
+            courseBox.addItem("CS 350");
+            courseBox.addItem("CS 450");
+        }
+      }
+    }//GEN-LAST:event_instructorBoxActionPerformed
+
+    private void departmentBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentBoxActionPerformed
+         if(departmentBox.getSelectedItem().equals("Computer Science & Electrical Engineering")){
+            instructorBox.removeAllItems();
+            instructorBox.addItem("-----------------");
+            instructorBox.addItem("Sara Johnson");
+            instructorBox.addItem("Phillip Bryce");
+            instructorBox.addItem("Christopher Valley");
+            instructorBox.addItem("Lauren Winston");
+            instructorBox.addItem("Jennifer Giamatto");
+            instructorBox.addItem("Barney Smith");
+            instructorBox.addItem("Victor Carlton");
+        }
+        else if(departmentBox.getSelectedItem().equals("-----------------")){
+            instructorBox.removeAllItems();
+            instructorBox.addItem("-----------------");
+        }
+        else{
+            instructorBox.removeAllItems();
+            instructorBox.addItem("-----------------");
+            instructorBox.addItem("John Doe");
+            instructorBox.addItem("Kyle Draper");
+            instructorBox.addItem("McKayla Summers");
+        } 
+            
+    }//GEN-LAST:event_departmentBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,13 +271,15 @@ public class Provost extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> courseBox;
+    private javax.swing.JComboBox<String> departmentBox;
+    private javax.swing.JComboBox<String> instructorBox;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

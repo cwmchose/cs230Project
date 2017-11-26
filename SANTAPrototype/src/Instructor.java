@@ -52,7 +52,7 @@ public class Instructor extends javax.swing.JFrame {
 
         jLabel1.setText("Welcome Instuctor");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS 111 ", "CS 312", "CS 485", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS 111", "CS 312", "CS 485", "" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
