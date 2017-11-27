@@ -34,15 +34,7 @@ public class ClientHandler extends Thread{
         
     }
     public void run(){
-        try{        
-            String input;
-            while((input = inReader.readLine()) != null){  
-                //System.err.println("test" + input);
-                processInput(input);
-            }
-        }catch(IOException e){
-            System.out.println("Exception in ClientHandler:  Client likely Disconnected");
-        }
+        new ChooseUser().setVisible(true);
          
     }
     

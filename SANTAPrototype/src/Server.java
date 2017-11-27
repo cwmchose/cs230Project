@@ -41,6 +41,7 @@ public class Server extends Thread{
             while(running){
                 Socket clientSocket = ss.accept();
                 ClientHandler ch = new ClientHandler(this, clientSocket);
+                System.out.println("Successfully created client");
                 ch.start();
                 clientList.add(ch);
             }
